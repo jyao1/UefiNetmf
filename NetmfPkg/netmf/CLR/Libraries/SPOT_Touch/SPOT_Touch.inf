@@ -1,0 +1,39 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SPOT_Touch
+  FILE_GUID                      = E9FA7D78-229D-4BB6-9544-E8574BCBC293
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SPOT_Touch
+
+[Sources]
+  spot_touch_native.cpp
+  spot_touch_native_Microsoft_SPOT_Touch_Ink.cpp
+  spot_touch_native_Microsoft_SPOT_Touch_TouchCollectorConfiguration.cpp
+  spot_touch_native_Microsoft_SPOT_Touch_TouchEventProcessor.cpp
+  spot_touch_native_Microsoft_SPOT_Touch_TouchPanel.cpp
+  spot_touch_native.h
+  spot_touch.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

@@ -1,0 +1,33 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HAL_Watchdog_stubs
+  FILE_GUID                      = 551D3218-319F-4EA9-B226-07D0C54EF1E0
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = HAL_Watchdog
+
+[Sources]
+  stubs_functions_WATCHDOG.cpp
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

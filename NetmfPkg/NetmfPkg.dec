@@ -1,0 +1,38 @@
+##  @file  NetmfPkg.dec
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = NetmfPkg
+  PACKAGE_GUID                   = D481BBA2-948D-4CD8-8DCF-AD3138BD8EC8
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+  Include
+  netmf/Solutions/Uefi
+  netmf/DeviceCode/Targets/Native/Uefi
+  netmf/Support/Include
+  netmf/DeviceCode/Include
+  netmf/CLR/Include
+  netmf/Crypto/Inc
+  netmf/CLR/Libraries/CorLib
+  netmf/CLR/Libraries/SPOT
+  netmf/CLR/Libraries/SPOT_Graphics
+  netmf/CLR/Libraries/SPOT_Hardware
+  netmf/CLR/Libraries/SPOT_IO
+  netmf/CLR/Libraries/SPOT_Net
+  netmf/CLR/Libraries/SPOT_Net_Security
+  netmf/CLR/Libraries/SPOT_TimeService
+  netmf/CLR/Libraries/SPOT_Touch
+  netmf/CLR/Libraries/System_Xml
+  

@@ -1,0 +1,36 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PAL_Usart_uefi
+  FILE_GUID                      = 7238EAF6-DC3B-4537-B7B0-8E07101C79D9
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PAL_Usart
+
+[Sources]
+  usart_uefi.cpp
+  usart_uefi.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+  
+[LibraryClasses]
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiSerialIoProtocolGuid
+
+[BuildOptions]

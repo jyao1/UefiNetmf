@@ -1,0 +1,36 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HAL_GlobalLock_uefi
+  FILE_GUID                      = 631AFF9E-DB34-4063-BA44-DFE3972475F1
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = HAL_GlobalLock
+
+[Sources]
+  GlobalLock_uefi.cpp
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[Protocols]
+  gEfiCpuArchProtocolGuid
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

@@ -1,0 +1,36 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SPOT_Net_Security
+  FILE_GUID                      = 6A46F78C-716A-43B4-A2A1-819570336948
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SPOT_Net_Security
+
+[Sources]
+  spot_net_security_native.cpp
+  spot_net_security_native_Microsoft_SPOT_Net_Security_SslNative.cpp
+  SPOT_Net_Security.h
+  spot_net_security_native.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

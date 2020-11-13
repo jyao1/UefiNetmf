@@ -1,0 +1,36 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PAL_AsyncProcCall
+  FILE_GUID                      = 1CA90825-92AC-4488-BFE4-CC3EE8D2F37B
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PAL_AsyncProcCall
+
+[Sources]
+  Completions.cpp
+  Continuations.cpp
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  # warning C4706: assignment within conditional expression
+  MSFT:*_*_*_CC_FLAGS = /wd4706
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

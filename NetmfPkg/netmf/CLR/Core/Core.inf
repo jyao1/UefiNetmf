@@ -1,0 +1,81 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Core
+  FILE_GUID                      = 3E5BB90F-AC28-4598-AC8D-66B5343567C4
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = Core
+
+[Sources]
+  AVLTree.cpp
+  Cache.cpp
+  Cache_Win32.cpp
+  Checks.cpp
+  CLR_RT_DblLinkedList.cpp
+  CLR_RT_HeapBlock.cpp
+  CLR_RT_HeapBlock_Array.cpp
+  CLR_RT_HeapBlock_ArrayList.cpp
+  CLR_RT_HeapBlock_BinaryBlob.cpp
+  CLR_RT_HeapBlock_Delegate.cpp
+  CLR_RT_HeapBlock_Delegate_List.cpp
+  CLR_RT_HeapBlock_Finalizer.cpp
+  CLR_RT_HeapBlock_Lock.cpp
+  CLR_RT_HeapBlock_LockRequest.cpp
+  CLR_RT_HeapBlock_Node.cpp
+  CLR_RT_HeapBlock_Queue.cpp
+  CLR_RT_HeapBlock_Stack.cpp
+  CLR_RT_HeapBlock_String.cpp
+  CLR_RT_HeapBlock_Timer.cpp
+  CLR_RT_HeapBlock_WaitForObject.cpp
+  CLR_RT_HeapCluster.cpp
+  CLR_RT_Interop.cpp
+  CLR_RT_Memory.cpp
+  CLR_RT_MemoryRange.cpp
+  CLR_RT_ObjectToEvent_Destination.cpp
+  CLR_RT_ObjectToEvent_Source.cpp
+  CLR_RT_RuntimeMemory.cpp
+  CLR_RT_StackFrame.cpp
+  CLR_RT_SystemAssembliesTable.cpp
+  CLR_RT_UnicodeHelper.cpp
+  Core.cpp
+  Execution.cpp
+#  FileStore_Win32.cpp
+  GarbageCollector.cpp
+  GarbageCollector_Compaction.cpp
+  GarbageCollector_ComputeReachabilityGraph.cpp
+  GarbageCollector_Info.cpp
+  Interpreter.cpp
+#  ParseOptions_Win32.cpp
+  Random.cpp
+  Streams.cpp
+  StringTable.cpp
+  Thread.cpp
+  TypeSystem.cpp
+  TypeSystemLookup.cpp
+  Various.cpp
+#  XmlUtil.cpp
+  Core.h
+  corhdr_private.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

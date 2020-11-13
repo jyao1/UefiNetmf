@@ -1,0 +1,71 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = NativeSampleLibGpioTest
+  FILE_GUID                      = 846F5F72-9685-4653-8EB6-3FB28827585D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = NativeSampleLib
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  NativeSampleGpioTest.cpp
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  NativeTestLib
+
+  HAL_tinyhal
+  HAL_GlobalLock
+  HAL_Power
+  HAL_Display
+  HAL_Backlight
+  HAL_Watchdog
+  HAL_Time
+  HAL_Gpio
+  HAL_Usart
+  HAL_IntC
+  HAL_Assert
+  PAL_AsyncProcCall
+  PAL_BlockStorage
+  PAL_Time
+  PAL_Event
+  PAL_ComDirector
+  PAL_Usart
+  PAL_Watchdog
+  PAL_Piezo
+  PAL_PalEvent
+  PAL_TimeService
+  PAL_Heap
+  PAL_tinycrt
+  Configuration
+  Debug
+  
+  # UEFI stub
+  UefiSupportLib
+  IntrinsicLib
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 
+

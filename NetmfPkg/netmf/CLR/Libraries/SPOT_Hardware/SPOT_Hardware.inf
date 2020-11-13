@@ -1,0 +1,53 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SPOT_Hardware
+  FILE_GUID                      = 02633BF0-02F8-4AD9-B9FE-867F6FE2C724
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SPOT_Hardware
+
+[Sources]
+  spot_hardware_native.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_Battery.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_Battery__ChargerModel.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_Cpu.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_LargeBuffer.cpp
+  spot_hardware_native_microsoft_spot_eventsink.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_HardwareProvider.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_I2CDevice.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_I2CDevice__Configuration.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_InputPort.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_InterruptPort.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_NativeEventDispatcher_mshl.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_OutputPort.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_Port.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_PowerState.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_SPI.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_SPI__Configuration.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_TristatePort.cpp
+  spot_hardware_native_Microsoft_SPOT_Hardware_Watchdog.cpp
+  spot_hardware.h
+  spot_hardware_native.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 

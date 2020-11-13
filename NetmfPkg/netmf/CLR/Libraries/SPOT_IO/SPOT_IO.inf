@@ -1,0 +1,39 @@
+## @file
+#
+#  Copyright (c) 2014, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SPOT_IO
+  FILE_GUID                      = CF700B6D-FBCF-4B7F-ADA5-B6C88EBCD537
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SPOT_IO
+
+[Sources]
+  spot_io_native.cpp
+  spot_io_native_Microsoft_SPOT_IO_NativeFileStream.cpp
+  spot_io_native_Microsoft_SPOT_IO_NativeFindFile.cpp
+  spot_io_native_Microsoft_SPOT_IO_NativeIO.cpp
+  spot_io_native_Microsoft_SPOT_IO_RemovableMedia.cpp
+  spot_io_native_Microsoft_SPOT_IO_VolumeInfo.cpp
+  spot_io_native.h
+
+[Packages]
+  NetmfPkg/NetmfPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+
+[BuildOptions]
+  MSFT:DEBUG_*_*_CC_FLAGS = /D "_DEBUG"
+  GCC:*_*_*_CC_FLAGS = -Wno-invalid-offsetof -fno-rtti 
